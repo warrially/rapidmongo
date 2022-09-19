@@ -24,9 +24,9 @@ docker network create mongo-rs
 
 # 准备跑docker容器
 ```bash
-docker run -di --name=mongo0 -p 127.0.0.1:27017:27017 -p 127.0.0.1:27018:27018 -p 127.0.0.1:27019:27019 -v /root/rapidmongo/mongo0/configdb:/data/configdb/ -v /root/rapidmongo/mongo0/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf 
-docker run -di --name=mongo1 --net container:mongo0 -v /root/rapidmongo/mongo1/configdb:/data/configdb/ -v /root/rapidmongo/mongo1/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf
-docker run -di --name=mongo2 --net container:mongo0 -v /root/rapidmongo/mongo2/configdb:/data/configdb/ -v /root/rapidmongo/mongo2/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf
+docker run -di --restart=always --name=mongo0 -p 127.0.0.1:27017:27017 -p 127.0.0.1:27018:27018 -p 127.0.0.1:27019:27019 -v /root/rapidmongo/mongo0/configdb:/data/configdb/ -v /root/rapidmongo/mongo0/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf 
+docker run -di --restart=always --name=mongo1 --net container:mongo0 -v /root/rapidmongo/mongo1/configdb:/data/configdb/ -v /root/rapidmongo/mongo1/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf
+docker run -di --restart=always --name=mongo2 --net container:mongo0 -v /root/rapidmongo/mongo2/configdb:/data/configdb/ -v /root/rapidmongo/mongo2/db/:/data/db/  mongo:5  --replSet "mongoRs" --bind_ip_all -f /data/configdb/mongod.conf
 ```
 
 # docker 查看IP地址,  这里无用
