@@ -1,3 +1,13 @@
+# 下载
+cd /root
+git clone https://github.com/warrially/rapidmongo.git
+cd /root/rapidmongo
+rm -rf .git
+
+# 安装docker(可跳过)
+apt install docker.io -y
+docker pull mongo:5
+
 # 生成新KEY 
 ```bash
 openssl rand -base64 756 > mongo0/configdb/mongodbKeyfile.key
