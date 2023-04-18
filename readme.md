@@ -1,12 +1,15 @@
 # 下载
+```bash
 cd /root
 git clone https://github.com/warrially/rapidmongo.git
 cd /root/rapidmongo
 rm -rf .git
-
+```
 # 安装docker(可跳过)
+```bash
 apt install docker.io -y
 docker pull mongo:5
+```
 
 # 生成新KEY 
 ```bash
